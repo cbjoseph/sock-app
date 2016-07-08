@@ -1,0 +1,11 @@
+<h1>Socks!</h1>
+<% @socks.each do |sock| %>
+  <p><%= sock.name %></p>
+  <p><%= image_tag sock.image %></p>
+  <p><%= " Price: #{sock.price}" %></p>
+  <p><%= "Description: #{sock.description}" %></p>
+  <p><%= "Size: #{sock.size}" %></p>
+  <a href="/sock/<%=sock.id%>">More info</a>   
+<% end %>
+
+
