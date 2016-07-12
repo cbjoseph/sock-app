@@ -10,7 +10,14 @@ class SocksController < ApplicationController
   end
 
   def create
-    @sock_new = Sock.new(name: params[:name], size: params[:size], price: params[:price], description: params[:description], image: params[:image])
+    @sock = Sock.new(
+      name: params[:name], 
+      size: params[:size], 
+      price: params[:price], 
+      description: params[:description], 
+      image: params[:image]
+    )
+    @sock.save
     render 'create.html.erb'
   end
 
@@ -19,12 +26,20 @@ class SocksController < ApplicationController
     render 'edit.html.erb'
   end
 
-  def new
-    render 'new.html.erb'
+  def update
+    @sock = Sock.find_by(id: params['id'])
+    @sock.update(
+      name: params[:name],
+      size: params[:size],
+      price: params[:price],
+      description: params[:description],
+      image: params[:image]
+    )
+    render 'update.html.erb'
   end
 
-  def update
-    render 'update.html.erb'
+  def new
+    render 'new.html.erb'
   end
     
 end
