@@ -1,3 +1,25 @@
+
+<nav class="navbar navbar-default" role="navigation">
+  <!-- We use the fluid option here to avoid overriding the fixed width of a normal container within the narrow content columns. -->
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-6">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-6">
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="/socks">All Socks!</a></li>
+        <li><a href="/socks/new">Add a new sock!</a></li>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div>
+</nav>
+
 <h1>Socks!</h1>
 <% @socks.each do |sock| %>
   <p><%= sock.name %></p>
@@ -7,4 +29,3 @@
   <p><%= "Size: #{sock.size}" %></p>
   <a href="/socks/<%=sock.id%>">More info</a>   
 <% end %>
-
