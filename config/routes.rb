@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
-  get '/socks_for_sale' => 'socks#show_sock'
-  get '/sock/1' => 'socks#pineapple_sock'
-  get '/sock/2' => 'socks#pug_sock'
-  get '/sock/3' => 'socks#sushi_sock'
+  get '/socks' => 'socks#index'
+  get '/socks/new' => 'socks#new'
+  post '/socks' => 'socks#create'
+  get '/socks/:id' => 'socks#show'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
