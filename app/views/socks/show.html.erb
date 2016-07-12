@@ -5,3 +5,7 @@
 <p><%= @sock.size %></p>
 <a href = "/socks"> Back to all socks! </a>
 <a href = "/socks/<%=@sock.id%>/edit"> Edit this sock! </a>
+<div>
+
+  <%= link_to "Delete this sock", "/socks/#{@sock.id}", method: :delete %>
+  </div>

@@ -41,7 +41,12 @@ class SocksController < ApplicationController
   def new
     render 'new.html.erb'
   end
-    
+  
+  def destroy
+    @sock = Sock.find_by(id: params['id'])
+    @recipe.destroy
+    render 'destroy.html.erb'
+  end
 end
 #   def pineapple_sock
 #     @title = "Want to feel the Hawaiian Breeze?"
