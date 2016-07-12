@@ -13,6 +13,19 @@ class SocksController < ApplicationController
     @sock_new = Sock.new(name: params[:name], size: params[:size], price: params[:price], description: params[:description], image: params[:image])
     render 'create.html.erb'
   end
+
+  def edit
+    @sock = Sock.find_by(id: params['id'])
+    render 'edit.html.erb'
+  end
+
+  def new
+    render 'new.html.erb'
+  end
+
+  def update
+    render 'update.html.erb'
+  end
     
 end
 #   def pineapple_sock

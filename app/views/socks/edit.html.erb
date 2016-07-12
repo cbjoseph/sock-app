@@ -1,0 +1,26 @@
+<h1>Which sock would you like to edit?</h1>
+<%= form_tag "/socks/#{@sock.id}/edit", method: :patch do %>
+  <div>
+    <%= label_tag :name %>
+    <%= text_field_tag :name, @sock.name, class: 'form-control' %>
+  </div>
+  <div>
+    <%= label_tag :price %>
+    <%= text_field_tag :price, @sock.price, class: 'form-control'%>
+  </div>
+   <div>
+    <%= label_tag :size %>
+    <%= text_field_tag :size, @sock.size, class: 'form-control' %>
+  </div>
+     <div>
+    <%= label_tag :description%>
+    <%= text_field_tag :description, @sock.description, class: 'form-control' %>
+  </div>
+     <div>
+    <%= label_tag :image_url %>
+    <%= text_field_tag :image, @sock.image, class: 'form-control' %>
+  </div>
+  <div>
+  <%= submit_tag 'Update sock' %>
+  </div>
+  <% end %>
