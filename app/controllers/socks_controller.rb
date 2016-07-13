@@ -18,7 +18,7 @@ class SocksController < ApplicationController
       image: params[:image]
     )
     @sock.save
-    render 'create.html.erb'
+    redirect_to "/socks/#{@sock.id}"
   end
 
   def edit
@@ -35,7 +35,7 @@ class SocksController < ApplicationController
       description: params[:description],
       image: params[:image]
     )
-    render 'update.html.erb'
+    redirect_to "/socks/#{@sock.id}"
   end
 
   def new
@@ -44,8 +44,8 @@ class SocksController < ApplicationController
   
   def destroy
     @sock = Sock.find_by(id: params['id'])
-    @recipe.destroy
-    render 'destroy.html.erb'
+    @sock.destroy
+    redirect_to '/socks'
   end
 end
 #   def pineapple_sock
