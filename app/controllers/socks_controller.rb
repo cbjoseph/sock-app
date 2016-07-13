@@ -47,7 +47,7 @@ class SocksController < ApplicationController
   def destroy
     @sock = Sock.find_by(id: params['id'])
     @sock.destroy
-    flash[:success] = "Sock successfully deleted!"
+    flash[:danger] = "Sock <strong>successfully</strong> deleted!"
     redirect_to '/socks'
   end
 end
