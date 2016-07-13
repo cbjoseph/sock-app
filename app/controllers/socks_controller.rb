@@ -18,6 +18,7 @@ class SocksController < ApplicationController
       image: params[:image]
     )
     @sock.save
+    flash[:success] = "Sock successfully created!"
     redirect_to "/socks/#{@sock.id}"
   end
 
@@ -35,6 +36,7 @@ class SocksController < ApplicationController
       description: params[:description],
       image: params[:image]
     )
+    flash[:success] = "Sock successfully updated!"
     redirect_to "/socks/#{@sock.id}"
   end
 
@@ -45,6 +47,7 @@ class SocksController < ApplicationController
   def destroy
     @sock = Sock.find_by(id: params['id'])
     @sock.destroy
+    flash[:success] = "Sock successfully deleted!"
     redirect_to '/socks'
   end
 end
