@@ -1,8 +1,11 @@
 <h1><%= @sock.description %></h1>
 <p><%= @sock.name %></p>
-<p><%= @sock.price %></p>
+<p>Price: <%= @sock.price %></p>
+<p>Tax: <%= @sock.tax %></p>
+<p>Total: <%= @sock.total %></p>
+<p><%= @sock.sale_message %></p>
 <p><%= image_tag @sock.image %></p>
-<p><%= @sock.size %></p>
+<p>Size: <%= @sock.size %></p>
 <a href = "/socks"> Back to all socks! </a>
 <a href = "/socks/<%=@sock.id%>/edit"> Edit this sock! </a>
 <div>
