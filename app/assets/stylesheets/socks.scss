@@ -2,7 +2,16 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 h1 {
-   background-color: rgb(255, 57, 153);
-   font-family: "Trebuchet MS", Helvetica, sans-serif;
+   background-color: light blue;
+   font-family: Futura,"Trebuchet MS",Arial,sans-serif;
    text-align:center;
+}
+body {
+  font-family: Futura,"Trebuchet MS",Arial,sans-serif;
+  background-image: url('new_year_background.png');
+  background-image: image-url('new_year_background.png');
+}
+
+.well img {
+  width: 100%;
 }
