@@ -1,6 +1,8 @@
 <h1>Socks!</h1>
+
+<% @socks.each_slice(3) do |three_socks| %>
 <div class= "row">
-<% @socks.each do |sock| %>
+<% three_socks.each do |sock|%>
 <div class="col-md-4">
 <div class="well">
   <p><%= sock.name %></p>
@@ -11,5 +13,6 @@
   <a href="/socks/<%=sock.id%>">More info</a>   
   </div>
   </div>
-<% end %>
+  <% end %>
 </div>
+<% end %>
