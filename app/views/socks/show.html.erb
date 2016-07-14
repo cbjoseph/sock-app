@@ -1,10 +1,14 @@
 <h1><%= @sock.description %></h1>
 <div class="well" id ="showPage">
 <p><%= @sock.name %></p>
-<p>Price: <%= @sock.price %></p>
-<p>Tax: <%= @sock.tax %></p>
-<p>Total: <%= @sock.total %></p>
-<p><%= @sock.sale_message %></p>
+<p>Price: <%= number_to_currency(@sock.price)%></p>
+<p>Tax: <%= number_to_currency(@sock.tax) %></p>
+<p>Total: <%= number_to_currency(@sock.total) %></p>
+<% if @sock.discounted? %>
+<p>Discount item!</p>
+<% else %>
+<p>On sale!</p>
+<% end %>
 <p><%= image_tag @sock.image %></p>
 <p>Size: <%= @sock.size %></p>
 <a href = "/socks"> Back to all socks! </a>
