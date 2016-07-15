@@ -5,15 +5,15 @@ class Sock < ActiveRecord::Base
   end 
 
   def discounted?
-    price.to_f < 100.00
+    price < 100.00
   end
 
   def tax
-    @tax = price.to_f * 0.09
+    @tax = price * 0.09
     @tax
   end
 
   def total
-    price.to_f + @tax
+    price + @tax
   end
 end
