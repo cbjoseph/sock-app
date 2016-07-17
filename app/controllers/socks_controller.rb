@@ -1,6 +1,7 @@
 class SocksController < ApplicationController
   def index
-    @socks = Sock.all
+    sort_attribute = params[:sort]
+    @socks = Sock.order(sort_attribute)
     render 'index.html.erb'
   end
 
