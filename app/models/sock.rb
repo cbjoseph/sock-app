@@ -16,4 +16,5 @@ class Sock < ActiveRecord::Base
   def total
     price + @tax
   end
+  
 end

@@ -1,13 +1,27 @@
 class SocksController < ApplicationController
   def index
     sort_attribute = params[:sort]
-    @socks = Sock.order(sort_attribute)
+    discount_item = params[:discount]
+    @socks = Sock.all
+    if params[:order] == "ascending" 
+      @socks = Sock.order(sort_attribute)
+    elsif params[:order] == "descending"
+      @socks = Sock.order(sort_attribute => :desc) 
+    end
+    if params[:discount] == "true"
+      @socks = Sock.where("price < ?", 7)
+    end
     render 'index.html.erb'
+ 
   end
 
   def show
     @sock = Sock.find_by(id: params['id'])
+    if params[:order] == "random" 
+      @socks = Sock.order("random()").first
+    end
     render 'show.html.erb'
+
   end
 
   def create
