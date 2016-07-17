@@ -7,21 +7,26 @@ class SocksController < ApplicationController
       @socks = Sock.order(sort_attribute)
     elsif params[:order] == "descending"
       @socks = Sock.order(sort_attribute => :desc) 
+    elsif params[:search_terms]
+      @socks = Sock.where("name LIKE ?", "%#{params[:search_terms]}%")
     end
     if params[:discount] == "true"
       @socks = Sock.where("price < ?", 7)
     end
+    # if params[:sort] && params [:order]
+    # @socks = Sock.order(params[:sort] ==> params[:order])
+    # else @socks =Sock.all
+
     render 'index.html.erb'
- 
   end
 
   def show
-    @sock = Sock.find_by(id: params['id'])
-    if params[:order] == "random" 
-      @socks = Sock.order("random()").first
+    if params[:id] == 'random'
+      @sock = Sock.all.sample
+    else 
+      @sock = Sock.find_by(id: params['id'])
     end
     render 'show.html.erb'
-
   end
 
   def create
@@ -65,6 +70,7 @@ class SocksController < ApplicationController
     flash[:danger] = "Sock <strong>successfully</strong> deleted!"
     redirect_to '/socks'
   end
+
 end
 #   def pineapple_sock
 #     @title = "Want to feel the Hawaiian Breeze?"
