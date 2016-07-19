@@ -1,6 +1,7 @@
 <h1><%= @sock.description %></h1>
 <div class="well" id ="showPage">
 <p><%= @sock.name %></p>
+<p>Supplier: <%= @sock.supplier.name %></p>
 <p>Price: <%= number_to_currency(@sock.price)%></p>
 <p>Tax: <%= number_to_currency(@sock.tax) %></p>
 <p>Total: <%= number_to_currency(@sock.total) %></p>

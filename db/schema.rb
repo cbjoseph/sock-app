@@ -11,19 +11,28 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160715010309) do
+ActiveRecord::Schema.define(version: 20160719001128) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "socks", force: :cascade do |t|
     t.string   "name"
-    t.decimal  "price",     precision: 9, scale: 2
+    t.decimal  "price",       precision: 9, scale: 2
     t.string   "image"
     t.text     "description"
     t.string   "size"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
+    t.integer  "supplier_id"
+  end
+
+  create_table "suppliers", force: :cascade do |t|
+    t.string   "name"
+    t.string   "phone"
+    t.string   "email"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
 end
