@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get '/' => 'socks#index'
   get '/socks' => 'socks#index'
   get '/socks/new' => 'socks#new'
   post '/socks' => 'socks#create'
@@ -6,6 +7,15 @@ Rails.application.routes.draw do
   get '/socks/:id/edit' => 'socks#edit'
   patch '/socks/:id' => 'socks#update'
   delete '/socks/:id' => 'socks#destroy'
+
+  get '/signup' => 'users#new'
+  post '/users' => 'users#create'
+
+  get '/login' => 'sessions#new'
+  post '/login' => 'sessions#create'
+  get '/logout' => 'sessions#destroy'
+
+  post '/images' => 'images#create'
 
   
   # The priority is based upon order of creation: first created -> highest priority.

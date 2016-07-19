@@ -16,9 +16,19 @@
 <p>Size: <%= @sock.size %></p>
 <a href = "/socks"> Back to all socks! </a>
 <a href = "/socks/<%=@sock.id%>/edit"> Edit this sock! </a>
-<div>
-
-  <%= link_to "Delete this sock", "/socks/#{@sock.id}", method: :delete %>
 </div>
 
+
+  <%= form_tag "/images", method: :post do %>
+  <div>
+    <%= label_tag :url %>
+    <%= text_field_tag :url, '', class: 'form-control' %>
   </div>
+  <div>
+    <%= label_tag :sock_id%>
+    <%= text_field_tag :sock_id, @sock.id, class: 'form-control' %>
+  </div>
+  <div>
+  <%= submit_tag 'Submit image' %>
+  </div>
+  <% end %>

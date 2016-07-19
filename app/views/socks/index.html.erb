@@ -1,5 +1,7 @@
 <h1>Socks!</h1>
-
+<% if current_user %>
+  <h2>Welcome <%= current_user.name %>!</h2>
+<% end %>
 <% @socks.each_slice(3) do |three_socks| %>
 <div class= "row">
 <% three_socks.each do |sock|%>
