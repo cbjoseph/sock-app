@@ -10,7 +10,9 @@
 <% else %>
 <p>On sale!</p>
 <% end %>
-<p><%= image_tag @sock.image %></p>
+<% @sock.images.each do |image| %>
+<p><%= image_tag image.url %></p>
+<% end%>
 <p>Size: <%= @sock.size %></p>
 <a href = "/socks"> Back to all socks! </a>
 <a href = "/socks/<%=@sock.id%>/edit"> Edit this sock! </a>

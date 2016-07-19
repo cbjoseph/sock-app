@@ -1,5 +1,6 @@
 class Sock < ActiveRecord::Base
   belongs_to :supplier
+  has_many :images
   def friendly_created_at
     created_at.strftime('%b %d, %Y %l:%M %p')
     # strftime

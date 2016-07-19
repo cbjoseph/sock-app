@@ -6,7 +6,7 @@
 <div class="col-md-4">
 <div class="well">
   <p><%= sock.name %></p>
-  <p><%= image_tag sock.image %></p>
+  <p><%= image_tag sock.images.first.url%></p>
   <p><%= " Price: #{sock.price}" %></p>
   <p><%= "Description: #{sock.description}" %></p>
   <p><%= "Size: #{sock.size}" %></p>
