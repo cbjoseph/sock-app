@@ -35,7 +35,8 @@ class SocksController < ApplicationController
       size: params[:size], 
       price: params[:price], 
       description: params[:description], 
-      image: params[:image]
+      images: params[:images],
+      user: current_user.id
     )
     @sock.save
     flash[:success] = "Sock successfully created!"
