@@ -32,3 +32,15 @@
   <%= submit_tag 'Submit image' %>
   </div>
   <% end %>
+
+    <%= form_tag "/orders", method: :post do %>
+  <div>
+    <%= label_tag :quantity %>
+    <%= text_field_tag :quantity, '', class: 'form-control' %>
+  </div>
+  <div>
+  <%= submit_tag 'Submit order' %>
+  </div>
+  <% end %>
+
+
