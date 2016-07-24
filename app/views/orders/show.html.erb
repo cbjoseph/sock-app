@@ -1,3 +1,9 @@
 <h1>Your order info: </h1>
+<p> Email : <%= @order.user.email %> </p>
 <p>Order id: <%= @order.id %> </p>
 <p>Order quantity: <%= @order.quantity %> </p>
+<p> Sock name: <%= @order.sock.name %> </p>
+<p> Quantity: <%= @order.quantity %></p>
+<p> Subtotal:<%= @order.subtotal %> </p>
+<p> Tax:<%= @order.tax %> </p>
+<p> Total:<%= @order.total %> </p>

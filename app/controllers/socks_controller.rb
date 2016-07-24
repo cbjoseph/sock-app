@@ -9,6 +9,8 @@ class SocksController < ApplicationController
       @socks = Sock.order(sort_attribute => :desc) 
     elsif params[:search_terms]
       @socks = Sock.where("name LIKE ?", "%#{params[:search_terms]}%")
+    elsif params[:category]
+      @socks = Category.find_by(name: params[:category]).socks
     end
     if params[:discount] == "true"
       @socks = Sock.where("price < ?", 7)
@@ -34,11 +36,15 @@ class SocksController < ApplicationController
       name: params[:name], 
       size: params[:size], 
       price: params[:price], 
-      description: params[:description], 
-      images: params[:images],
+      description: params[:description],
       user: current_user.id
     )
     @sock.save
+    @image = Image.new(
+      url: params[:image_url],
+      sock_id: @sock.id
+    )
+    @image.save
     flash[:success] = "Sock successfully created!"
     redirect_to "/socks/#{@sock.id}"
   end

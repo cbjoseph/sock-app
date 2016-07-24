@@ -38,6 +38,10 @@
     <%= label_tag :quantity %>
     <%= text_field_tag :quantity, '', class: 'form-control' %>
   </div>
+   <div>
+    <%= label_tag :sock_id %>
+    <%= hidden_field_tag :sock_id, @sock.id, class: 'form-control' %>
+  </div>
   <div>
   <%= submit_tag 'Submit order' %>
   </div>

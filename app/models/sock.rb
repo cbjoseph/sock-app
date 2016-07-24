@@ -3,6 +3,8 @@ class Sock < ActiveRecord::Base
   belongs_to :supplier
   has_many :images
   has_many :orders
+  has_many :categorized_products
+  has_many :categories, through: :categorized_products
 
   def friendly_created_at
     created_at.strftime('%b %d, %Y %l:%M %p')
