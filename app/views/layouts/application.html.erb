@@ -36,7 +36,9 @@
             <li role="separator" class="divider"></li>
             <li><a href="/socks/random">Random Item!</a></li>
             <li role="separator" class="divider"></li>
-            <li><a href="/socks?category=Athletic">Athletic Socks</a></li>
+            <% Category.all.each do |category| %>
+            <li><a href="/socks?category=<%=category.name%>"><%= category.name %></a></li>
+            <% end%>
           </ul>
         </li>
       </ul>
