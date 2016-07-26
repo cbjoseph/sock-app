@@ -10,6 +10,9 @@
 <% else %>
 <p>On sale!</p>
 <% end %>
+<% @sock.categories.each do |category|%>
+<p>Type of sock: <%= category.name%> </p>
+<% end %>
 <% @sock.images.each do |image| %>
 <p><%= image_tag image.url %></p>
 <% end%>
@@ -25,7 +28,7 @@
     <%= text_field_tag :url, '', class: 'form-control' %>
   </div>
   <div>
-    <%= label_tag :sock_id%>
+    <%= label_tag :sock_id %>
     <%= text_field_tag :sock_id, @sock.id, class: 'form-control' %>
   </div>
   <div>
@@ -33,8 +36,9 @@
   </div>
   <% end %>
 
-    <%= form_tag "/orders", method: :post do %>
+    <%= form_tag "/carted_products", method: :post do %>
   <div>
+  <h3>Buy now!</h3>
     <%= label_tag :quantity %>
     <%= text_field_tag :quantity, '', class: 'form-control' %>
   </div>
@@ -43,7 +47,7 @@
     <%= hidden_field_tag :sock_id, @sock.id, class: 'form-control' %>
   </div>
   <div>
-  <%= submit_tag 'Submit order' %>
+  <%= submit_tag 'Add to Cart' %>
   </div>
   <% end %>
 

@@ -1,0 +1,20 @@
+<h1>Checkout... </h1>
+<% if current_user %>
+  <h2><%= current_user.name %> wants to purchase:</h2>
+<% end %>
+<% @cartedproducts.each_slice(3) do |three_cartedproducts| %>
+<div class= "row">
+<% three_cartedproducts.each do |cartedproduct|%>
+<div class="col-md-4">
+<div class="well">
+  <p><%= cartedproduct.sock.name %></p>
+  <p><%= image_tag cartedproduct.sock.images.first.url%></p>
+  <p><%= " Price: #{cartedproduct.sock.price}" %></p>
+  <p><%= "Description: #{cartedproduct.sock.description}" %></p>
+  <p><%= "Size: #{cartedproduct.sock.size}" %></p> 
+  </div>
+  </div>
+  <% end %>
+</div>
+<% end %>
+<h2><a href= "/orders" data-method= "post">Buy Now!</a> </h2> 

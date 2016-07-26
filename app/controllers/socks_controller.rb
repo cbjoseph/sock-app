@@ -10,7 +10,8 @@ class SocksController < ApplicationController
     elsif params[:search_terms]
       @socks = Sock.where("name LIKE ?", "%#{params[:search_terms]}%")
     elsif params[:category]
-      @socks = Category.find_by(name: params[:category]).socks
+      current_category = Category.find_by(name: params[:category])
+      @socks = current_category.socks
     end
     if params[:discount] == "true"
       @socks = Sock.where("price < ?", 7)
