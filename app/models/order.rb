@@ -2,7 +2,7 @@ class Order < ActiveRecord::Base
   belongs_to :user
   belongs_to :sock
   has_many :carted_products
-
+  has_many :socks, through: :carted_products
 
 def subtotal_order
   @carted_products = CartedProduct.where(status: "purchased", order_id: id)

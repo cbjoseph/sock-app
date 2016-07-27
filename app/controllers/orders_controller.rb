@@ -1,4 +1,5 @@
 class OrdersController < ApplicationController
+  before_action :authenticate_user!
   def create
     sock = Sock.find_by(id: params[:sock_id])
     cartedproducts = CartedProduct.where(status: "carted", user_id: current_user.id)
@@ -22,7 +23,7 @@ class OrdersController < ApplicationController
 
   def show
     @order = Order.find_by(id: params[:id], user_id: current_user.id)
-    @purchased = Order.all
+    @purchases = CartedProduct.where(status: "purchased", user_id: current_user.id, order_id: @order.id)
     render 'show.html.erb'
   end
 end

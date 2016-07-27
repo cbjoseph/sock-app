@@ -12,6 +12,7 @@
   <p><%= " Price: #{cartedproduct.sock.price}" %></p>
   <p><%= "Description: #{cartedproduct.sock.description}" %></p>
   <p><%= "Size: #{cartedproduct.sock.size}" %></p> 
+  <%= link_to "Remove this product", "/carted_products/#{cartedproduct.id}", method: :delete %>`
   </div>
   </div>
   <% end %>

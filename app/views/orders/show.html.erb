@@ -4,3 +4,15 @@
 <p> Subtotal:<%= @order.subtotal %> </p>
 <p> Tax:<%= @order.tax %> </p>
 <p> Total:<%= @order.total %> </p>
+
+<% @purchases.each do |purchase| %>
+<div class="col-md-4">
+<div class="well">
+<p><%= purchase.sock.name %></p>
+  <p><%= image_tag purchase.sock.images.first.url%></p>
+  <p><%= "Size: #{purchase.sock.size}" %></p> 
+  <p>Quantity ordered: <%= purchase.quantity %></p>
+  
+  </div>
+  </div>
+<% end %>

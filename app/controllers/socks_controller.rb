@@ -1,4 +1,6 @@
 class SocksController < ApplicationController
+  before_action :authenticate_admin!, except: [:index, :show]
+
   def index
     sort_attribute = params[:sort]
     discount_item = params[:discount]
