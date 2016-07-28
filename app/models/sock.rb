@@ -9,6 +9,9 @@ class Sock < ActiveRecord::Base
   has_many :orders, through: :carted_products
   has_many :socks, through: :carted_products
 
+  validates :name, presence: true, uniqueness: true
+  validates :price, presence: true, numericality: true
+  validates :description, presence: true, length: {maximum: 500}
   def friendly_created_at
     created_at.strftime('%b %d, %Y %l:%M %p')
     # strftime

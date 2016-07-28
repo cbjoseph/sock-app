@@ -40,16 +40,14 @@ class SocksController < ApplicationController
       size: params[:size], 
       price: params[:price], 
       description: params[:description],
-      user: current_user.id
+      user_id: current_user.id
     )
-    @sock.save
-    @image = Image.new(
-      url: params[:image_url],
-      sock_id: @sock.id
-    )
-    @image.save
-    flash[:success] = "Sock successfully created!"
-    redirect_to "/socks/#{@sock.id}"
+    if @sock.save
+      flash[:success] = "Sock successfully created!"
+      redirect_to "/socks/#{@sock.id}"
+    else
+      render 'new.html.erb'
+    end
   end
 
   def edit
@@ -59,18 +57,21 @@ class SocksController < ApplicationController
 
   def update
     @sock = Sock.find_by(id: params['id'])
-    @sock.update(
+   if @sock.update(
       name: params[:name],
       size: params[:size],
       price: params[:price],
-      description: params[:description],
-      image: params[:image]
+      description: params[:description]
     )
-    flash[:success] = "Sock successfully updated!"
-    redirect_to "/socks/#{@sock.id}"
+      flash[:success] = "Sock successfully updated!"
+      redirect_to "/socks/#{@sock.id}"
+    else
+      render 'edit.html.erb'
+    end
   end
 
   def new
+    @sock = Sock.new
     render 'new.html.erb'
   end
   

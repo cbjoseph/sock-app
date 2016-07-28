@@ -1,4 +1,15 @@
 <h1>Which sock would you like to edit?</h1>
+<% if @sock.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@sock.errors.count, "error") %> prohibited this sock from being saved:</h2>
+     
+      <ul>
+        <% @sock.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
 <%= form_tag "/socks/#{@sock.id}", method: :patch do %>
   <div>
     <%= label_tag :name %>
