@@ -12,14 +12,16 @@ class CartedProductsController < ApplicationController
       sock_id: params[:sock_id],
       quantity: params[:quantity],
       status: "carted"
-      )
+    )
     @cartedproduct.save
+    session[:cart_count] = nil
     redirect_to "/carted_products"
   end
 
   def destroy
     @cartedproduct = CartedProduct.find_by(id: params[:id])
     @cartedproduct.update(status: "removed")
+    session[:cart_count] = nil
     redirect_to "/carted_products"
   end
 end
